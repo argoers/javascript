@@ -70,15 +70,18 @@ function suurendaArtikkel(toode, korvArtikkelD) {
 }
 
 //Ülesanne 5.1: lisa funktsioon toodete hulga vähendamiseks.
-function decreaseItem(toode, korvArtikkelD) {
+function decreaseItem(toode, korvArtikkelD, lisaKorviNupp) {
     korv.forEach(korvArtikkel => {
         if (korvArtikkel.nimi === toode.nimi) {
             if (korvArtikkel.kogus > 1) {
                 korvArtikkelD.querySelector('.korv_artikkel_kogus').innerText = --korvArtikkel.kogus;
+                arvutaSumma();
+            }
+            else {
+                eemaldaArtikkel(toode, korvArtikkelD, lisaKorviNupp);
             }
         }
     });
-    arvutaSumma();
 }
 
 //toodete eemaldamine ostukorvist
@@ -116,8 +119,8 @@ function tuhjendaKorv() {
     document.querySelector('.korv-jalus').remove();
 
     lisaKorviNupud.forEach(lisaOstukorviNupp => {
-        lisaKorviNupp.innerText = 'Lisa ostukorvi';
-        lisaKorviNupp.disabled = false;
+        lisaOstukorviNupp.innerText = 'Lisa ostukorvi';
+        lisaOstukorviNupp.disabled = false;
     });
 }
 
