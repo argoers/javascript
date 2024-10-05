@@ -122,6 +122,9 @@ function tuhjendaKorv() {
         lisaOstukorviNupp.innerText = 'Lisa ostukorvi';
         lisaOstukorviNupp.disabled = false;
     });
+    console.log(korv);
+    korv = [];
+    console.log(korv);
 }
 
 
